@@ -30,10 +30,10 @@ public class Deck {
 	 * @param values is an array containing all of the card point values.
 	 */
 	public Deck(String[] ranks, String[] suits, int[] values) {
-    this.cards = new List<Card>();
-    this.size=ranks.length()
+    this.cards = new ArrayList<Card>();
+    this.size=ranks.length;
     for(int i=0;i<this.size;i++)
-      this.cards.add(new Card(ranks[i],suits[i],values[i]); 
+      this.cards.add(new Card(ranks[i],suits[i],values[i])); 
     this.shuffle();
 	}
 
