@@ -33,7 +33,10 @@ public class Deck {
     this.cards = new ArrayList<Card>();
     this.size=ranks.length;
     for(int i=0;i<this.size;i++)
-      this.cards.add(new Card(ranks[i],suits[i],values[i])); 
+    {
+      for(int j=0;j<suits.length;j++)
+        this.cards.add(new Card(ranks[i],suits[j],values[i])); 
+    }
     this.shuffle();
 	}
 
