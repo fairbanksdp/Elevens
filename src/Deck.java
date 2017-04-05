@@ -72,7 +72,7 @@ public class Deck {
       do {
         j = rand.nextInt(size());
       } while (cards.get(j) == null);
-      tempCards.set(i,cards.get(j));
+      tempCards.add(cards.get(j));
       cards.set(j,null);
     }
     for (i=0;i<size();i++)
