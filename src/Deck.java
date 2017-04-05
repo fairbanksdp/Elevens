@@ -65,18 +65,15 @@ public class Deck {
 	public void shuffle() {
 		this.size = this.cards.size();
 		Random rand = new Random();
-    List<Card> tempCards = new ArrayList<Card>();
+    Card tempCard;
     int i,j;
     for (i=0;i<size();i++)
     {
-      do {
-        j = rand.nextInt(size());
-      } while (cards.get(j) == null);
-      tempCards.add(cards.get(j));
-      cards.set(j,null);
+      j = rand.nextInt(size());
+      tempCard = cards.get(j);
+      cards.set(j,cards.get(i));
+      cards.set(i,tempCard);
     }
-    for (i=0;i<size();i++)
-      cards.set(i,tempCards.get(i));
 	}
 
 	/**
