@@ -135,8 +135,8 @@ public class ElevensBoard extends Board {
 	 * @return true if a legal play was found (and made); false othewise.
 	 */
 	public boolean playIfPossible() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 11 *** */
-		return false; // REPLACE !
+    return playPairSum11IfPossible()
+      ||playJQKIfPossible();
 	}
 
 	/**
