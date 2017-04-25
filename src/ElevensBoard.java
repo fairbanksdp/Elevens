@@ -84,19 +84,18 @@ public class ElevensBoard extends Board {
     int k1,k2;
 		for (Integer i : selectedCards) 
     {
-		  if (foundPairs.contains(i)) continue;
 			for (Integer j : selectedCards) 
       {
-		    if (foundPairs.contains(j)||i.equals(j)) 
-          continue;
         k1=cardAt(i.intValue()).pointValue();
         k2=cardAt(j.intValue()).pointValue();
 				if (k1+k2 == 11) 
         {
           foundPairs.add(i);
           foundPairs.add(j);
+          break;
         }
       }
+		  if (foundPairs.contains(i)) break;
     }
     return foundPairs;
   }
@@ -146,8 +145,12 @@ public class ElevensBoard extends Board {
 	 * @return true if an 11-pair play was found (and made); false othewise.
 	 */
 	private boolean playPairSum11IfPossible() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 11 *** */
-		 return false; // REPLACE !
+    if (isLegal(findPairSum11(cardIndexes())))
+    {
+      replaceSelectedCards(findPairSum11(cardIndexes()));
+      return true;
+    }
+    return false;
 	}
 
 	/**
@@ -157,7 +160,11 @@ public class ElevensBoard extends Board {
 	 * @return true if a JQK play was found (and made); false othewise.
 	 */
 	private boolean playJQKIfPossible() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 11 *** */
-		return false; // REPLACE !
+    if (isLegal(findJQK(cardIndexes())))
+    {
+      replaceSelectedCards(findJQK(cardIndexes()));
+      return true;
+    }
+		return false;
 	}
 }
